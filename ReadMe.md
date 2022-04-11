@@ -2,8 +2,9 @@
 
 This project is a simple chat app following the [Realtime Chat App | React, GraphQL & Websockets](https://youtu.be/E3NHd-PkLrQ) Traversy Media tutorial. Jack's original GitHub code can be found [here](https://github.com/jherr/chat-o-matic.git).
 
-<!-- ## To Do:
-- [ ] Set up uuid to get automatic user IDs.
+## To Do:
+- [ ] Figure out how to get the webpack error to go away.
+<!-- - [ ] Set up uuid to get automatic user IDs.
 - [ ] Enable the following features:
     - [ ] Usernames
     - [ ] Message date/time stamps
@@ -17,6 +18,23 @@ This project is a simple chat app following the [Realtime Chat App | React, Grap
         - `npx degit https://github.com/jherr/wp5-starter-react.git\#main client` (IMPORTANT NOTE: Run this from the root directory and then run `cd client`)
             - This command will clone the starter React app from Jack's GitHub repository and save it to the client folder.
             - It's important to use his starter app because of webpack and babel.
+        - `npm install --save-dev webpack`
+        - `npm i shards-react` (Can skip this step if you run into errors because this is just a styles library)
+        - `npm install @apollo/client graphql` (Handles the graphQL → React communication)
+    - Complete the following steps:
+        - Add the following lines of code to `App.js` (only if you are using shards-react).
+            `
+            import { Alert } from "shards-react";
+ 
+            import "bootstrap/dist/css/bootstrap.min.css";
+            import "shards-ui/dist/css/shards.min.css"
+            `
+        - Add the following lines of code to `webpack.config.js` if you run into webpack errors (can be added at the bottom of the file):
+            `
+            externals: {
+                react: "React",
+            },
+            `
 
 - In server directory:
     - Run the following commands from a terminal:
