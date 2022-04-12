@@ -2,19 +2,36 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from "@apollo/client";
 
 const client = new ApolloClient({
-    // Change uri to point to the url of our graphQL server
-    uri: "http://localhost:4000/",
+    uri: "http://localhost:4000",
     cache: new InMemoryCache(),
 });
 
-// Chat contains everything that we want to show in the chat window
+const GET_MESSAGES = gql`
+    query {
+        messages {
+            id
+            content
+            user
+        }
+    }
+`
+
+const Messages = ({user}) => {
+    const {data} = useQuery(GET_MESSAGES);
+    if(!data) {
+        return null;
+    }
+    return JSON.stringify(data);
+}
+
 const Chat = () => {
-    return <div>I'm a chat window!</div>;
+    return <div><Messages user="Jack" /></div>;
 };
 
-// Exports the chat information to App.js
 export default () => {
-    <ApolloProvider client={client}>
-        <Chat />
-    </ApolloProvider>;
+    return (
+        <ApolloProvider client={client}>
+            <Chat />
+        </ApolloProvider>
+    );
 };
