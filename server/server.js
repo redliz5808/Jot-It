@@ -26,7 +26,7 @@ const resolvers = {
     Query: {
         messages: () => messages,
     },
-    
+
     // Allows us to test the server.
     Mutation: {
         postMessage: (parent, { user, content }) => {
@@ -48,6 +48,16 @@ const server = new createServer({
         resolvers,
     },
 });
-server.start(({ port }) => {
+
+// Set up options to avoid issues with cors
+const options = {
+    port: 4000,
+    cors: {
+        credentials: true,
+        origin: ["http://localhost:8080"], // your frontend url.
+    },
+};
+
+server.start(options, ({ port }) => {
     console.log(`Server on http://localhost:${port}/`);
 });
