@@ -2,6 +2,7 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from "@apollo/client";
 
 const client = new ApolloClient({
+    // Change uri to point to the url of our graphQL server
     uri: "http://localhost:4000",
     cache: new InMemoryCache(),
 });
