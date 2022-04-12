@@ -1,4 +1,4 @@
-# SNIPPETS
+# Jot It!
 
 This project is a simple chat app following the [Realtime Chat App | React, GraphQL & Websockets](https://youtu.be/E3NHd-PkLrQ) Traversy Media tutorial. Jack's original GitHub code can be found [here](https://github.com/jherr/chat-o-matic.git).
 
