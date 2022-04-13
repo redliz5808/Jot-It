@@ -41,7 +41,9 @@ const resolvers = {
     },
 };
 
-// Set up the server
+// const express = require("express");
+// const app = express();
+
 const server = new createServer({
     schema: {
         typeDefs,
@@ -51,7 +53,6 @@ const server = new createServer({
 
 // Set up options to avoid issues with cors
 const options = {
-    port: 4000,
     cors: {
         credentials: true,
         origin: ["http://localhost:8080"], // your frontend url.
