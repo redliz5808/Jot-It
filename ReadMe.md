@@ -6,6 +6,7 @@ This project is a simple chat app following the [Realtime Chat App | React, Grap
 
 - [x] Figure out how to get the webpack error to go away. (__Hint__: Don't forget the `return` keyword!!!🤦‍♀️)
 - [ ] Get rid of the CORS error.
+    - 4/13/22: Question out on [stackoverflow](https://stackoverflow.com/a/53864038/13066267) about it. Switching to another task to take a mental break from this.
 <!-- -   [ ] Enable the following features:
     -   [ ] Usernames
     -   [ ] Message date/time stamps

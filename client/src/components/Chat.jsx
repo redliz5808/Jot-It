@@ -4,6 +4,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from "@apo
 const client = new ApolloClient({
     // Change uri to point to the url of our graphQL server
     uri: "http://localhost:4000",
+    fetchOptions: {
+        mode: "no-cors",
+    },
     cache: new InMemoryCache(),
 });
 
@@ -15,18 +18,24 @@ const GET_MESSAGES = gql`
             user
         }
     }
-`
+`;
 
-const Messages = ({user}) => {
-    const {data} = useQuery(GET_MESSAGES);
-    if(!data) {
+const Messages = ({ user }) => {
+    const { data } = useQuery(GET_MESSAGES);
+    if (!data) {
+        console.log("no data");
         return null;
     }
+    console.log(JSON.stringify(data));
     return JSON.stringify(data);
-}
+};
 
 const Chat = () => {
-    return <div><Messages user="Jack" /></div>;
+    return (
+        <div>
+            <Messages user="Jack" />
+        </div>
+    );
 };
 
 export default () => {
